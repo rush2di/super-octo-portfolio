@@ -1,3 +1,142 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Regular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Italic.woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Thin.woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-ThinItalic.woff");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Light.woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-LightItalic.woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Medium.woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-MediumItalic.woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Bold.woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-BoldItalic.woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Black.woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-BlackItalic.woff");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bely Display";
+  src: url("../public/fonts/BelyDisplay/BelyDisplayW00Regular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-gray-50 text-gray-500 font-prim;
+  }
+  p {
+    @apply font-comp text-base font-normal leading-loose tracking-wide text-gray-500;
+  }
+}
+
+@layer components {
+  .badge {
+    @apply inline-flex items-center justify-center px-3 py-0.5 bg-gray-800 rounded-lg;
+  }
+  .badge__content {
+    @apply text-sm font-medium leading-normal text-white;
+  }
+  .badge__content--sm {
+    @apply text-xs font-medium leading-tight text-white;
+  }
+  .display-main {
+    @apply text-4xl md:text-2xl mb-1 font-comp font-bold;
+  }
+  .display-comp {
+    @apply text-2xl md:text-1xl mb-1 font-comp font-bold;
+  }
+  .txt-h1 {
+    @apply text-1xl mb-0-75 font-prim font-semibold;
+  }
+  .txt-h2 {
+    @apply text-0xl mb-0-75 font-prim font-semibold;
+  }
+  .txt-h3 {
+    @apply text-xxxl mb-0-75 font-prim font-semibold;
+  }
+  .txt-h4 {
+    @apply text-xxl mb-0-75 font-prim font-semibold;
+  }
+  .txt-h5 {
+    @apply text-xl mb-0-75 font-prim font-semibold;
+  }
+  .txt-h6 {
+    @apply text-lg mb-0-75 font-prim font-semibold;
+  }
+}
