@@ -1,3 +1,4 @@
+import { OutlineBtn } from "components/Buttons";
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
 
@@ -31,6 +32,26 @@ const ProjectDetails = ({
       </div>
       <DetailsList listContent={missionTags} colorSchemes={primaryColor} />
       <DetailsList listContent={techTags} colorSchemes={secondaryColors} />
+      <div className="flex items-start mt-0-50">
+        {demoURL && (
+          <div className="mr-1">
+            <OutlineBtn
+              makeDark={makeDark}
+              href={demoURL}
+              icon={["fas", "external-link-alt"]}
+            />
+          </div>
+        )}
+        {repoURL && (
+          <div>
+            <OutlineBtn
+              makeDark={makeDark}
+              href={repoURL}
+              icon={["fab", "github"]}
+            />
+          </div>
+        )}
+      </div>
     </article>
   );
 };

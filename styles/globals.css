@@ -98,7 +98,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-gray-50 text-gray-500 font-prim;
+    @apply bg-gray-5 text-gray-500 font-prim;
   }
   p {
     @apply font-comp text-base font-normal leading-loose tracking-wide text-gray-500;
@@ -107,7 +107,7 @@
 
 @layer components {
   .badge {
-    @apply inline-flex items-center justify-center px-3 py-0.5 bg-gray-800 rounded-lg;
+    @apply inline-flex items-center justify-center px-3 py-0-5 bg-gray-800 rounded-lg;
   }
   .badge__content {
     @apply text-sm font-medium leading-normal text-white;
@@ -138,5 +138,50 @@
   }
   .txt-h6 {
     @apply text-lg mb-0-75 font-prim font-semibold;
+  }
+  .guides {
+    @apply h-full w-full;
+  }
+  .guides__wrapper {
+    @apply pointer-events-none fixed top-0 left-0 w-full h-screen overflow-hidden z-0;
+  }
+  .guides__container {
+    @apply container relative justify-between flex h-full;
+  }
+}
+
+.guides__guide {
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    #57575727,
+    #57575727 50%,
+    transparent 0,
+    transparent
+  );
+  background-size: 1px 8px;
+  height: 100%;
+}
+
+.guides__guide:first-of-type,
+.guides__guide:last-of-type {
+  background: #7f7f7f2e;
+}
+
+@media screen and (max-width: 1250px) {
+  .guides {
+    max-width: calc(100vw - 0px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .guides__guide:nth-of-type(2n) {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .guides__guide:nth-of-type(3n) {
+    visibility: hidden;
   }
 }
