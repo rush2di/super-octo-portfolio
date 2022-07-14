@@ -9,6 +9,7 @@ export interface ProjectContentProps {
   primaryColors: string[];
   secondaryColors: string[];
   makeDark?: boolean;
+  designURL?: string;
   repoURL?: string;
   demoURL?: string;
 }

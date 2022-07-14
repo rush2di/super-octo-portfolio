@@ -6,21 +6,22 @@ import type { DetailsListProps, ProjectContentProps } from "./types";
 
 const ProjectContent = ({
   cover,
-  altLogo,
   logo,
   title,
   compTitle,
+  altLogo,
   techTags,
   missionTags,
   primaryColors,
   secondaryColors,
   makeDark = false,
+  designURL,
   demoURL,
   repoURL,
 }: ProjectContentProps) => {
   return (
     <article className="w-full">
-      <div className="absolute top-0 right-0 bottom-0 justify-end flex h-full w-full bg-black/60">
+      <div className={`absolute top-0 right-0 bottom-0 justify-end flex h-full w-full ${ makeDark ? "bg-white/60" : "bg-black/60"}`}>
         <Image
           src={cover}
           placeholder="blur"
@@ -72,12 +73,22 @@ const ProjectContent = ({
                   </div>
                 )}
                 {repoURL && (
-                  <div>
+                  <div className="mr-1">
                     <OutlineBtn
                       makeDark={makeDark}
                       href={repoURL}
                       icon={["fab", "github"]}
                       text={"github repo"}
+                    />
+                  </div>
+                )}
+                {designURL && (
+                  <div className="mr-1">
+                    <OutlineBtn
+                      makeDark={makeDark}
+                      href={designURL}
+                      icon={["fab", "figma"]}
+                      text={"design work"}
                     />
                   </div>
                 )}

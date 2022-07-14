@@ -198,7 +198,7 @@
 }
 .project-wrapper-bottom {
   height: 600px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 50px, 100% calc(100% - 50px), 0 100%);
   margin-top: -51px;
@@ -212,6 +212,13 @@
 }
 
 #gradient-canvas-2 {
+  --gradient-color-1: #FFFFFF;
+  --gradient-color-2: #FFFFFF;
+  --gradient-color-3: #EEF5F4;
+  --gradient-color-4: #519872;
+}
+
+#gradient-canvas-3 {
   --gradient-color-1: #11344a;
   --gradient-color-2: #010910;
   --gradient-color-3: #010910;

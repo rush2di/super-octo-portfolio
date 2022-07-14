@@ -46,8 +46,27 @@ const projects: ProjectsDetailsType[] = [
     demoURL: `#`,
   },
   {
+    makeDark: true,
     id: `gradient-canvas-2`,
     classNames: `project-wrapper-bottom relative`,
+    initializer: (gradient) => {
+      gradient.amp = 320;
+    },
+    cover: require("public/images/fysiohub_cover.png"),
+    altLogo: require("public/images/logo_fysiohub_alt.png"),
+    title: `FYSIOHUB`,
+    compTitle: `Fitness & Physiotherapy Clinic`,
+    missionTags: [`UI Design`, `Frontend`, `Wordpress`],
+    techTags: [`Php`, `Sass`, `Wordpress`, `Javascript`, `Gulp`],
+    primaryColors: [`#519872`, `#ffffff`],
+    secondaryColors: [`#08404C`, `#ffffff`],
+    designURL: `#`,
+    repoURL: `#`,
+    demoURL: `#`,
+  },
+  {
+    id: `gradient-canvas-3`,
+    classNames: `project-wrapper-top relative`,
     initializer: (gradient) => {
       gradient.updateFrequency(0.0000125);
       gradient.amp = 100;
