@@ -24,39 +24,29 @@ const introContent = {
   },
 };
 
-const animationVariants = [
-  {
-    hidden: { opacity: 0, y: 100 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.8, duration: 1.4, type: "spring", stiffness: 35 },
-    }
+const animation = {
+  hidden: { opacity: 0, y: 100 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 0.8, duration: 1.4, type: "spring", stiffness: 35 },
   },
+};
+
+const animationVariants = [
+  { ...animation },
   {
-    hidden: { opacity: 0, y: 100 },
+    ...animation,
     visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.8,
-        duration: 1.4,
-        type: "spring",
-        stiffness: 35,
-      },
+      ...animation.visible,
+      transition: { ...animation.visible.transition, delay: 0.95 },
     },
   },
   {
-    hidden: { opacity: 0, y: 100 },
+    ...animation,
     visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.8,
-        duration: 1.4,
-        type: "spring",
-        stiffness: 35,
-      },
+      ...animation.visible,
+      transition: { ...animation.visible.transition, delay: 1 },
     },
   },
 ];

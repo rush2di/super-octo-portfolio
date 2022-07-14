@@ -17,6 +17,7 @@
     "react-dom": "18.1.0",
     "react-intersection-observer-hook": "^2.0.4",
     "react-page-visibility": "^7.0.0",
+    "react-use": "^17.4.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

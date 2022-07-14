@@ -24,21 +24,21 @@ const ProjectContent = ({
     <article className="w-full">
       <div
         className={`absolute top-0 right-0 bottom-0 justify-end flex h-full w-full ${
-          makeDark ? "bg-white/60" : "bg-black/60"
+          makeDark ? "bg-white/40" : "bg-black/40"
         }`}
       >
         <Image
           src={cover}
           placeholder="blur"
           alt={`${title} cover`}
-          className="h-full object-[47%] sm:object-center"
+          className="h-full object-[10%] sm:object-center"
           objectFit="cover"
         />
       </div>
       <div className="absolute top-0 right-0 w-full h-full">
         <div className="container h-full">
           <div className="flex items-center justify-between h-full px-1">
-            <div className="flex flex-col">
+            <div className="flex flex-col pb-2 sm:pb-0">
               <div className="mb-1">
                 <Image src={altLogo} alt={`${title} logo`} placeholder="blur" />
               </div>
@@ -99,7 +99,7 @@ const ProjectContent = ({
                 )}
               </div>
             </div>
-            <div className="hidden md:block xl:hidden">
+            <div className="hidden md:block">
               {logo && (
                 <Image src={logo} alt={`${title} logo`} placeholder="blur" />
               )}

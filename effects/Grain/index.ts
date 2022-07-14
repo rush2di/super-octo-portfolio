@@ -21,10 +21,10 @@ class Grain {
      * Options
      * Increase the pattern size if visible pattern
      */
-    this.patternSize = 150;
+    this.patternSize = 60;
     this.patternScaleX = 1;
     this.patternScaleY = 1;
-    this.patternRefreshInterval = 3; // 8
+    this.patternRefreshInterval = 6; // 8
     this.patternAlpha = 15; // int between 0 and 255,
 
     /**
