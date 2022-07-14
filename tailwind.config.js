@@ -13,8 +13,18 @@ module.exports = {
       colors: {
         gray: {
           5: "#FDFDFD",
-        }
-      }
+        },
+      },
+      keyframes: {
+        arrow: {
+          "0%": { transform: "translateY(-1rem)" },
+          "50%": { transform: "translateY(0rem)" },
+          "100%": { transform: "translateY(-1rem)" },
+        },
+      },
+      animation: {
+        arrow: "arrow 1.85s ease-in-out infinite",
+      },
     },
     screens: {
       sm: "525px",
@@ -38,7 +48,7 @@ module.exports = {
       "0xl": "1.32rem",
       "1xl": "1.43rem",
       "2xl": "1.457rem",
-      "3xl": "1.9rem",
+      "3xl": "2.037rem",
       "4xl": "2.25rem",
       "5xl": "2.75rem",
       "6xl": "4rem",

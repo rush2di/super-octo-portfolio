@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 
 class Grain {
+  paused: boolean;
   patternSize: number;
   patternScaleX: number;
   patternScaleY: number;
@@ -15,6 +16,7 @@ class Grain {
   ctx: any;
 
   constructor(el: HTMLElement | ReactElement) {
+    this.paused = false;
     /**
      * Options
      * Increase the pattern size if visible pattern
@@ -108,9 +110,3 @@ class Grain {
 }
 
 export default Grain;
-
-// /**
-//  * Initiate Grain
-//  */
-// const el = document.querySelector(".grain");
-// const grain = new Grain(el);

@@ -1,20 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { OutlineBtnTypes, OutlineBtnWrapperTypes } from "../types";
+import type { OutlineBtnProps, OutlineBtnWrapperProps } from "../types";
 
 const OutlineBtn = ({
   href,
   icon = ["fas", "star"],
   makeDark = false,
-}: OutlineBtnTypes) => {
+  text,
+}: OutlineBtnProps) => {
   return (
     <OutlineBtnWrapper {...{ makeDark, href }}>
-      <FontAwesomeIcon
-        icon={icon}
-        className={makeDark ? "text-gray-900" : "text-gray-100"}
-      />
-      <p className={`text-sm ${makeDark ? "text-gray-900" : "text-gray-100"}`}>
-        live website
-      </p>
+      <FontAwesomeIcon icon={icon} className="text-inherit" />
+      <p className="text-sm text-inherit">{text}</p>
     </OutlineBtnWrapper>
   );
 };
@@ -23,15 +19,17 @@ const OutlineBtnWrapper = ({
   href,
   makeDark,
   children,
-}: OutlineBtnWrapperTypes) => {
+}: OutlineBtnWrapperProps) => {
   return (
     <>
       {href ? (
         <a
           href={href}
           target="_blank"
-          className={`inline-flex space-x-1 items-center justify-center px-3 py-2 border rounded-sm ${
-            makeDark ? "border-gray-900" : "border-gray-100"
+          className={`inline-flex space-x-1 items-center justify-center px-1 py-0-25 border rounded-lg ${
+            makeDark
+              ? "border-gray-900 hover:bg-gray-900 text-gray-900 hover:text-white"
+              : "border-white hover:bg-white text-white hover:text-gray-900"
           }`}
         >
           {children}
@@ -39,7 +37,9 @@ const OutlineBtnWrapper = ({
       ) : (
         <div
           className={`inline-flex space-x-1 items-center justify-center px-3 py-2 border rounded-sm ${
-            makeDark ? "border-gray-900" : "border-gray-100"
+            makeDark
+              ? "border-gray-900 hover:bg-gray-900 text-gray-900 hover:text-white"
+              : "border-white hover:bg-white text-white hover:text-gray-900"
           }`}
         >
           {children}

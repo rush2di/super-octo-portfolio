@@ -1,13 +1,14 @@
-import Grain from "effects/Grain";
 import { useLayoutEffect, useRef } from "react";
+import Grain from "effects/Grain";
 
 const GrainScreen = () => {
   const grainHolder = useRef<null | HTMLElement>(null);
+  const grainInstance = useRef<null | Grain>(null);
 
   if (typeof window !== "undefined") {
     useLayoutEffect(() => {
       if (grainHolder.current !== null) {
-        new Grain(grainHolder.current);
+        grainInstance.current = new Grain(grainHolder.current);
       }
     }, [grainHolder]);
   }
