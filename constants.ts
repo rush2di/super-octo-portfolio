@@ -28,7 +28,7 @@ const animationVariants = [
   {
     hidden: { opacity: 0, y: 100 },
     visible: {
-      opacity: 1,
+      opacity: 0.8,
       y: 0,
       transition: { delay: 0.8, duration: 1.4, type: "spring", stiffness: 35 },
     }
@@ -36,7 +36,7 @@ const animationVariants = [
   {
     hidden: { opacity: 0, y: 100 },
     visible: {
-      opacity: 1,
+      opacity: 0.8,
       y: 0,
       transition: {
         delay: 0.8,
@@ -49,7 +49,7 @@ const animationVariants = [
   {
     hidden: { opacity: 0, y: 100 },
     visible: {
-      opacity: 1,
+      opacity: 0.8,
       y: 0,
       transition: {
         delay: 0.8,
