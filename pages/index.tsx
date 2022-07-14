@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
 
 import Layout from "components/Layout";
@@ -8,7 +9,12 @@ import CopyWriting from "components/CopyWriting";
 import ProjectWrapper from "components/ProjectWrapper";
 import ProjectContent from "components/ProjectContent";
 
-import { heroContent, introContent, projects } from "../constants";
+import {
+  animationVariants,
+  heroContent,
+  introContent,
+  projects,
+} from "../constants";
 import image1 from "../public/images/hero.png";
 // import project1 from "../public/images/jrdesign_cover.png";
 // import project1lc from "../public/images/logo_jrdesign_colored.png";
@@ -24,9 +30,33 @@ const Home: NextPage = () => {
           </div>
           <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
             <h1 className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] mix-blend-exclusion text-gray-200 text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
-              <span className="block capitalize">{heroContent.title[0]}</span>
-              <span className="block capitalize">{heroContent.title[1]}</span>
-              <span className="block capitalize">{heroContent.title[2]}</span>
+              <span className="block capitalize overflow-hidden">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[0]}
+                >
+                  {heroContent.title[0]}
+                </motion.div>
+              </span>
+              <span className="block capitalize overflow-hidden">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[1]}
+                >
+                  {heroContent.title[1]}
+                </motion.div>
+              </span>
+              <span className="block capitalize overflow-hidden">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[2]}
+                >
+                  {heroContent.title[2]}
+                </motion.div>
+              </span>
             </h1>
             <div className="flex w-full sm:grid sm:grid-cols-6 lg:grid-cols-12 items-center">
               <div className="hidden sm:block min-w-full h-[1px] bg-gray-5 mix-blend-exclusion sm:col-span-3 md:col-span-4 lg:col-span-9"></div>

@@ -24,6 +24,43 @@ const introContent = {
   },
 };
 
+const animationVariants = [
+  {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.8, duration: 1.4, type: "spring", stiffness: 35 },
+    }
+  },
+  {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.8,
+        duration: 1.4,
+        type: "spring",
+        stiffness: 35,
+      },
+    },
+  },
+  {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.8,
+        duration: 1.4,
+        type: "spring",
+        stiffness: 35,
+      },
+    },
+  },
+];
+
 interface ProjectsDetailsType
   extends ProjectContentProps,
     ProjectWrapperStaticProps {}
@@ -92,4 +129,4 @@ const projects: ProjectsDetailsType[] = [
   },
 ];
 
-export { heroContent, introContent, projects };
+export { heroContent, introContent, projects, animationVariants };

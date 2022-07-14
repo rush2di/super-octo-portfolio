@@ -1,6 +1,7 @@
-import { OutlineBtn } from "components/Buttons";
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
+
+import { OutlineBtn } from "components/Buttons";
 
 import type { DetailsListProps, ProjectContentProps } from "./types";
 
@@ -21,12 +22,16 @@ const ProjectContent = ({
 }: ProjectContentProps) => {
   return (
     <article className="w-full">
-      <div className={`absolute top-0 right-0 bottom-0 justify-end flex h-full w-full ${ makeDark ? "bg-white/60" : "bg-black/60"}`}>
+      <div
+        className={`absolute top-0 right-0 bottom-0 justify-end flex h-full w-full ${
+          makeDark ? "bg-white/60" : "bg-black/60"
+        }`}
+      >
         <Image
           src={cover}
           placeholder="blur"
           alt={`${title} cover`}
-          className="h-full object-[57%] sm:object-center"
+          className="h-full object-[47%] sm:object-center"
           objectFit="cover"
         />
       </div>
@@ -61,9 +66,9 @@ const ProjectContent = ({
                 colorSchemes={secondaryColors}
                 isSmall
               />
-              <div className="flex items-start mt-0-5">
+              <div className="flex items-start flex-wrap">
                 {demoURL && (
-                  <div className="mr-1">
+                  <div className="mr-1 mt-0-5">
                     <OutlineBtn
                       makeDark={makeDark}
                       href={demoURL}
@@ -73,7 +78,7 @@ const ProjectContent = ({
                   </div>
                 )}
                 {repoURL && (
-                  <div className="mr-1">
+                  <div className="mr-1 mt-0-5">
                     <OutlineBtn
                       makeDark={makeDark}
                       href={repoURL}
@@ -83,7 +88,7 @@ const ProjectContent = ({
                   </div>
                 )}
                 {designURL && (
-                  <div className="mr-1">
+                  <div className="mr-1 mt-0-5">
                     <OutlineBtn
                       makeDark={makeDark}
                       href={designURL}
@@ -95,7 +100,9 @@ const ProjectContent = ({
               </div>
             </div>
             <div className="hidden md:block xl:hidden">
-              {logo && <Image src={logo} alt={`${title} logo`} placeholder="blur" />}
+              {logo && (
+                <Image src={logo} alt={`${title} logo`} placeholder="blur" />
+              )}
             </div>
           </div>
         </div>
