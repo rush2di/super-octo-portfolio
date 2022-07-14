@@ -5,7 +5,7 @@ const Logo = () => {
     <div className="flex items-center">
       <div className="relative w-2-25 h-2-25 sm:w-3 sm:h-3">
         <Image
-          src="/images/RB_LOGO.svg"
+          src="/images/rb_logo.svg"
           layout="fill"
           alt="Rochdi Belhirch logo"
         />
