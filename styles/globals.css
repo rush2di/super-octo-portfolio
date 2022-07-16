@@ -95,7 +95,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth bg-gray-5;
   }
   body {
     @apply bg-gray-5 text-gray-500 font-prim;
