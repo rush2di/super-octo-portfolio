@@ -32,27 +32,24 @@ const Home: NextPage = () => {
             <h1 className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={animationVariants[0]}
+                  animate={{ z: 0 }}
+                  transition={{ repeat: Infinity, duration: 2 }}
                 >
                   {heroContent.title[0]}
                 </motion.div>
               </span>
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={animationVariants[1]}
+                  animate={{ z: 0 }}
+                  transition={{ repeat: Infinity, duration: 2 }}
                 >
                   {heroContent.title[1]}
                 </motion.div>
               </span>
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={animationVariants[2]}
+                  animate={{ z: 0 }}
+                  transition={{ repeat: Infinity, duration: 2 }}
                 >
                   {heroContent.title[2]}
                 </motion.div>
