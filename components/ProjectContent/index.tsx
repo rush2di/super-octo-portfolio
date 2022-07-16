@@ -24,7 +24,7 @@ const ProjectContent = ({
     <article className="w-full">
       <div
         className={`absolute top-0 right-0 bottom-0 justify-end flex h-full w-full ${
-          makeDark ? "bg-white/60" : "bg-black/60"
+          makeDark ? "bg-white/40" : "bg-black/40"
         }`}
       >
         <Image
