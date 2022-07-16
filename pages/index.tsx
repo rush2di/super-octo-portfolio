@@ -29,7 +29,7 @@ const Home: NextPage = () => {
             <Image src={image1} placeholder="blur" className="mx-4" />
           </div>
           <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
-            <h1 className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] mix-blend-exclusion text-gray-200 text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
+            <h1 className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-gray-200 text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25 mix-blend-difference">
               <span className="block capitalize overflow-hidden">
                 {heroContent.title[0]}
               </span>
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
               </span>
             </h1>
             <div className="flex w-full sm:grid sm:grid-cols-6 lg:grid-cols-12 items-center">
-              <div className="hidden sm:block min-w-full h-[1px] bg-gray-5 mix-blend-exclusion sm:col-span-3 md:col-span-4 lg:col-span-9"></div>
+              <div className="hidden sm:block min-w-full h-[1px] bg-gray-5 mix-blend-difference sm:col-span-3 md:col-span-4 lg:col-span-9"></div>
               <div className="px-1 w-full sm:col-span-3 md:col-span-2 lg:col-span-3">
                 <p className="text-sm text-center sm:text-left">
                   {heroContent.comp}
