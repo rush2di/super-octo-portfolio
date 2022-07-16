@@ -16,40 +16,40 @@ import {
   projects,
 } from "../constants";
 import image1 from "../public/images/hero.png";
-// import project1 from "../public/images/jrdesign_cover.png";
-// import project1lc from "../public/images/logo_jrdesign_colored.png";
-// import project1lw from "../public/images/logo_jrdesign_alt.png";
 
 const Home: NextPage = () => {
   return (
     <Layout>
       <div className="container">
-        <section className="relative">
-          <div className="w-18 sm:w-[50%] mx-auto md:w-full flex items-center justify-center mt-5">
+        <section className="relative bg-gray-5">
+          <div className="bg-gray-5 w-18 sm:w-[50%] mx-auto md:w-full flex items-center justify-center mt-5">
             <Image src={image1} placeholder="blur" className="mx-4" />
           </div>
           <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
-            <h1 className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
+            <h1 id="main_heading" className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  animate={{ z: 0 }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[0]}
                 >
                   {heroContent.title[0]}
                 </motion.div>
               </span>
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  animate={{ z: 0 }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[1]}
                 >
                   {heroContent.title[1]}
                 </motion.div>
               </span>
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
-                  animate={{ z: 0 }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationVariants[2]}
                 >
                   {heroContent.title[2]}
                 </motion.div>
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </div>
-      <section className="mt-5">
+      <section className="mt-5 relative z-20">
         {projects.map(({ classNames, id, initializer, ...data }) => (
           <div key={uuid()}>
             <ProjectWrapper
