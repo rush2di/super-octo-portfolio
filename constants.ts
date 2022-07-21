@@ -1,13 +1,11 @@
-// HOME PAGE CONSTANTS (HOME PAGE)
+import { ProjectsDetailsType } from "types";
 
-import type { ProjectContentProps } from "components/ProjectContent/types";
-import type { ProjectWrapperStaticProps } from "components/ProjectWrapper/types";
-
+// HOME PAGE CONSTANTS (HOME PAGE) ////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const heroContent = {
   title: ["Rochdi Belhirch", "creative frontend", "developer & designer"],
   comp: `Design minded web & mobile apps developer based in Morocco`,
 };
-
 const introContent = {
   about: {
     title: `About me`,
@@ -23,8 +21,16 @@ const introContent = {
     For design I use Figma, Adobe XD, and Adobe Photoshop.`,
   },
 };
+const outroContent = {
+  text: "Let's work together!",
+  github: "#",
+  linkedin: "#",
+  email: "#",
+};
 
-const animation = {
+// HOME PAGE ANIMATIONS (HOME PAGE) ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const animationBase = {
   hidden: { opacity: 0, y: 100 },
   visible: {
     y: 0,
@@ -32,33 +38,30 @@ const animation = {
     transition: { delay: 0.8, duration: 1.4, type: "spring", stiffness: 35 },
   },
 };
-
 const animationVariants = [
-  { ...animation },
+  { ...animationBase },
   {
-    ...animation,
+    ...animationBase,
     visible: {
-      ...animation.visible,
-      transition: { ...animation.visible.transition, delay: 0.95 },
+      ...animationBase.visible,
+      transition: { ...animationBase.visible.transition, delay: 0.95 },
     },
   },
   {
-    ...animation,
+    ...animationBase,
     visible: {
-      ...animation.visible,
-      transition: { ...animation.visible.transition, delay: 1 },
+      ...animationBase.visible,
+      transition: { ...animationBase.visible.transition, delay: 1 },
     },
   },
 ];
 
-interface ProjectsDetailsType
-  extends ProjectContentProps,
-    ProjectWrapperStaticProps {}
-
+// PROJECTS LIST DATA /////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const projects: ProjectsDetailsType[] = [
   {
+    year: "2021",
     id: `gradient-canvas-1`,
-    classNames: `project-wrapper-top relative`,
     initializer: (gradient) => (gradient.conf.wireframe = true),
     cover: require("public/images/jrdesign_cover.png"),
     logo: require("public/images/logo_jrdesign_colored.png"),
@@ -73,11 +76,11 @@ const projects: ProjectsDetailsType[] = [
     demoURL: `#`,
   },
   {
+    year: "2022",
     makeDark: true,
     id: `gradient-canvas-2`,
-    classNames: `project-wrapper-bottom relative`,
     initializer: (gradient) => {
-      gradient.amp = 320;
+      gradient.amp = 160;
     },
     cover: require("public/images/fysiohub_cover.png"),
     altLogo: require("public/images/logo_fysiohub_alt.png"),
@@ -92,8 +95,8 @@ const projects: ProjectsDetailsType[] = [
     demoURL: `#`,
   },
   {
+    year: "2021",
     id: `gradient-canvas-3`,
-    classNames: `project-wrapper-top relative`,
     initializer: (gradient) => {
       gradient.updateFrequency(0.0000125);
       gradient.amp = 100;
@@ -117,6 +120,42 @@ const projects: ProjectsDetailsType[] = [
     repoURL: `#`,
     demoURL: `#`,
   },
+  {
+    year: "2021",
+    makeDark: true,
+    id: `gradient-canvas-4`,
+    initializer: (gradient) => {
+      gradient.amp = 260;
+    },
+    cover: require("public/images/amy_cover.png"),
+    altLogo: require("public/images/logo_amy_alt.png"),
+    title: `EKSPEDISJONS JENTA`,
+    compTitle: `Amy Mir - Influencer Blog`,
+    missionTags: [`UI Design`, `Frontend`, `Wordpress`],
+    techTags: [`Php`, `Sass`, `Wordpress`, `Javascript`, `Gulp`],
+    primaryColors: [`#3A9CE0`, `#ffffff`],
+    secondaryColors: [`#40526F`, `#ffffff`],
+    designURL: `#`,
+    demoURL: `#`,
+  },
+  {
+    year: "2021",
+    id: `gradient-canvas-5`,
+    initializer: (gradient) => {
+      gradient.amp = 220;
+    },
+    cover: require("public/images/bato_cover.png"),
+    altLogo: require("public/images/logo_bato_alt.png"),
+    title: `BATO UIS`,
+    compTitle: `University of Stavanger - Students association `,
+    missionTags: [`UI Design`, `Frontend`, `Wordpress`],
+    techTags: [`Php`, `Sass`, `Wordpress`, `Javascript`, `Gulp`],
+    primaryColors: [`#FFF100`, `#000000`],
+    secondaryColors: [`#151515`, `#ffffff`],
+    designURL: `#`,
+    repoURL: `#`,
+    demoURL: `#`,
+  },
 ];
 
-export { heroContent, introContent, projects, animationVariants };
+export { heroContent, introContent, projects, animationVariants, outroContent };

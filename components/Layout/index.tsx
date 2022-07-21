@@ -1,4 +1,5 @@
 import GrainScreen from "components/GrainScreen";
+import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
 
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
       <main className="mt-2 min-h-screen">{children}</main>
+      <Footer />
     </div>
   );
 };

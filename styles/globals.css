@@ -162,53 +162,47 @@
   background-size: 1px 8px;
   height: 100%;
 }
-
 .guides__guide:first-of-type,
 .guides__guide:last-of-type {
   background: #7f7f7f2e;
 }
-
 @media screen and (max-width: 1250px) {
   .guides {
     max-width: calc(100vw - 0px);
   }
 }
-
 @media screen and (max-width: 768px) {
   .guides__guide:nth-of-type(2n) {
     visibility: hidden;
   }
 }
-
 @media screen and (max-width: 599px) {
   .guides__guide:nth-of-type(3n) {
     opacity: 0.357;
   }
 }
 
-.project-wrapper-top:first-child {
+.project-wrapper:first-child {
   margin-top: -50px;
 }
-.project-wrapper-top {
-  height: 600px;
+.project-wrapper {
+  height: 700px;
   width: 100%;
   overflow: hidden;
+}
+.project-wrapper {
   clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 calc(100% - 50px));
   margin-top: -51px;
 }
-.project-wrapper-bottom {
-  height: 600px;
-  width: 100%;
-  overflow: hidden;
+.project:nth-child(even) .project-wrapper {
   clip-path: polygon(0 0, 100% 50px, 100% calc(100% - 50px), 0 100%);
   margin-top: -51px;
 }
-
 @media screen and (max-width: 525px) {
-  .project-wrapper-top {
+  .project-wrapper {
     clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 calc(100% - 25px));
   }
-  .project-wrapper-bottom {
+  .project:nth-child(even) .project-wrapper {
     clip-path: polygon(0 0, 100% 25px, 100% calc(100% - 25px), 0 100%);
   }
 }
@@ -219,23 +213,33 @@
   --gradient-color-3: #111010;
   --gradient-color-4: #151313;
 }
-
 #gradient-canvas-2 {
-  --gradient-color-1: #FFFFFF;
-  --gradient-color-2: #FFFFFF;
-  --gradient-color-3: #EEF5F4;
-  --gradient-color-4: #519872;
+  --gradient-color-1: #78b991;
+  --gradient-color-2: #ffffff;
+  --gradient-color-3: #ffffff;
+  --gradient-color-4: #ffffff;
 }
-
 #gradient-canvas-3 {
-  --gradient-color-1: #11344a;
+  --gradient-color-1: #010910;
   --gradient-color-2: #010910;
   --gradient-color-3: #010910;
-  --gradient-color-4: #010910;
+  --gradient-color-4: #085281;
+}
+#gradient-canvas-4 {
+  --gradient-color-1: #dddee8;
+  --gradient-color-2: #f8f8f9;
+  --gradient-color-3: #f8f8f9;
+  --gradient-color-4: #f8f8f9;
+}
+#gradient-canvas-5 {
+  --gradient-color-1: #585858;
+  --gradient-color-2: #000000;
+  --gradient-color-3: #000000;
+  --gradient-color-4: #000000;
 }
 
 @supports (mix-blend-mode: difference) {
   #main_heading {
-    /* color: ; */
+    color: #656565;
   }
 }

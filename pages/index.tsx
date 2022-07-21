@@ -13,9 +13,11 @@ import {
   animationVariants,
   heroContent,
   introContent,
+  outroContent,
   projects,
 } from "../constants";
 import image1 from "../public/images/hero.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home: NextPage = () => {
   return (
@@ -26,7 +28,10 @@ const Home: NextPage = () => {
             <Image src={image1} placeholder="blur" className="mx-4" />
           </div>
           <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
-            <h1 id="main_heading" className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25">
+            <h1
+              id="main_heading"
+              className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25"
+            >
               <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
                 <motion.div
                   initial="hidden"
@@ -85,18 +90,38 @@ const Home: NextPage = () => {
           </div>
         </section>
       </div>
-      <section className="mt-5 relative z-20">
-        {projects.map(({ classNames, id, initializer, ...data }) => (
-          <div key={uuid()}>
-            <ProjectWrapper
-              id={id}
-              classNames={classNames}
-              initializer={initializer}
-            >
+      <section className="mt-5 relative z-20 w-full mx-auto bg-gray-5 shadow-gray-5 shadow-[0_0_120px_110px] py-2">
+        {projects.map(({ id, initializer, ...data }) => (
+          <div key={uuid()} className="project">
+            <ProjectWrapper id={id} initializer={initializer}>
               <ProjectContent {...data} />
             </ProjectWrapper>
           </div>
         ))}
+      </section>
+      <section id="connect">
+        <div className="container my-2 py-5 flex items-center justify-center relative z-20">
+          <div className="w-20">
+            <h1 className="txt-h3 italic text-gray-900 text-center mb-2">{outroContent.text}</h1>
+            <ul className="flex items-center justify-between px-1-5">
+              <li className="hover:opacity-60">
+                <a href={outroContent.github} target="_blank">
+                  <FontAwesomeIcon icon={["fab", "github"]} size="2x" />
+                </a>
+              </li>
+              <li className="hover:opacity-60">
+                <a href={outroContent.linkedin} target="_blank">
+                  <FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" />
+                </a>
+              </li>
+              <li className="hover:opacity-60">
+                <a href={"mailto:" + outroContent.email}>
+                  <FontAwesomeIcon icon={["fas", "envelope"]} size="2x" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </Layout>
   );

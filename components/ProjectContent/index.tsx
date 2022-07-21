@@ -19,6 +19,7 @@ const ProjectContent = ({
   designURL,
   demoURL,
   repoURL,
+  year,
 }: ProjectContentProps) => {
   return (
     <article className="w-full">
@@ -54,7 +55,14 @@ const ProjectContent = ({
                   makeDark ? "text-gray-900" : "text-white"
                 } txt-h6 font-medium`}
               >
-                {compTitle}
+                {compTitle}{" "}
+                <span
+                  className={`${
+                    makeDark ? "text-gray-900" : "text-white"
+                  } text-xs font-light opacity-60`}
+                >
+                  - {year}
+                </span>
               </h2>
 
               <DetailsList
