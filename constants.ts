@@ -121,7 +121,7 @@ const projects: ProjectsDetailsType[] = [
     demoURL: `#`,
   },
   {
-    year: "2021",
+    year: "2020",
     makeDark: true,
     id: `gradient-canvas-4`,
     initializer: (gradient) => {
@@ -139,7 +139,7 @@ const projects: ProjectsDetailsType[] = [
     demoURL: `#`,
   },
   {
-    year: "2021",
+    year: "2020",
     id: `gradient-canvas-5`,
     initializer: (gradient) => {
       gradient.amp = 220;

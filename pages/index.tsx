@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         <div className="mt-7 sm:mt-12 md:mt-3 lg:mt-3">
           <Scroll />
         </div>
-        <section className="px-1 sm:px-0-5">
+        <section id="about" className="px-1 sm:px-0-5">
           <div className="row mt-3">
             <div className="col-12 md:col-6">
               <CopyWriting
@@ -90,7 +90,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </div>
-      <section className="mt-5 relative z-20 w-full mx-auto bg-gray-5 shadow-gray-5 shadow-[0_0_120px_110px] py-2">
+      <section id="projects" className="mt-5 relative z-20 w-full mx-auto bg-gray-5 shadow-gray-5 shadow-[0_0_120px_110px] py-2">
         {projects.map(({ id, initializer, ...data }) => (
           <div key={uuid()} className="project">
             <ProjectWrapper id={id} initializer={initializer}>

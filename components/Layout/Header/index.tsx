@@ -17,7 +17,9 @@ const Header = () => {
               return (
                 <li key={uuid()}>
                   <Link href={item.href}>
-                    <a className="text-gray-600 ml-2-5 hover:text-gray-400">{item.title}</a>
+                    <a className="text-gray-600 ml-2-5 hover:text-gray-400">
+                      {item.title}
+                    </a>
                   </Link>
                 </li>
               );
