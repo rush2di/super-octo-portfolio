@@ -23,9 +23,9 @@ const introContent = {
 };
 const outroContent = {
   text: "Let's work together!",
-  github: "#",
-  linkedin: "#",
-  email: "#",
+  github: "https://github.com/rush2di",
+  linkedin: "https://www.linkedin.com/in/rochdi-belhirch-b6390a1a2",
+  email: "roch2di@gmail.com",
 };
 
 // HOME PAGE ANIMATIONS (HOME PAGE) ///////////////////////////////////////////////////////////////////////////////////
