@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 
+import SEO from "components/SEO";
 import Layout from "components/Layout";
 import Scroll from "components/Scroll";
 import CopyWriting from "components/CopyWriting";
@@ -17,8 +19,6 @@ import {
   projects,
 } from "../constants";
 import image1 from "../public/images/hero.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SEO from "components/SEO";
 
 const Home: NextPage = () => {
   return (

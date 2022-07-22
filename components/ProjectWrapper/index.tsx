@@ -7,7 +7,11 @@ import Gradient from "effects/Gradients";
 
 const _ACTIVATE_DEBUG_MODE = false;
 
-const ProjectWrapper = ({ initializer, children, id }: ProjectWrapperProps) => {
+const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
+  initializer,
+  children,
+  id,
+}) => {
   let [trackingRef, { isVisible }] = useTrackVisibility();
   const isPageVisible = usePageVisibility();
   const wrapper = useRef<null | HTMLElement>(null);
