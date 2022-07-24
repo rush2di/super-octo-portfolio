@@ -14,6 +14,7 @@
     "framer-motion": "^6.5.1",
     "hamburger-react": "^2.5.0",
     "next": "latest",
+    "nextjs-google-analytics": "^1.2.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-intersection-observer-hook": "^2.0.4",
