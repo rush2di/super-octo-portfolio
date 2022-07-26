@@ -36,6 +36,7 @@ const SEO = ({ title, description }: SeoProps) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="description" content={description} />
         <meta
           name="keywords"
           content="web developer,frontend specialist,React developer,Rochdi Belhirch,mobile developer,UI/UX design,web designer,React developer"

@@ -1,4 +1,4 @@
-import GrainScreen from "components/GrainScreen";
+import GrainOpt from "components/GrainOpt/inedx";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
@@ -6,7 +6,7 @@ import HeaderMobile from "./HeaderMobile";
 const Layout = ({ children }) => {
   return (
     <div>
-      <GrainScreen />
+      <GrainOpt />
       <Header />
       <HeaderMobile />
       <div className="guides__wrapper">

@@ -5,6 +5,10 @@ import { OutlineBtn } from "components/Buttons";
 
 import type { DetailsListProps, ProjectContentProps } from "./types";
 
+const ProjectContentDefaults = {
+  makeDark: false,
+};
+
 const ProjectContent = ({
   cover,
   logo,
@@ -15,7 +19,7 @@ const ProjectContent = ({
   missionTags,
   primaryColors,
   secondaryColors,
-  makeDark = false,
+  makeDark = ProjectContentDefaults.makeDark,
   designURL,
   demoURL,
   repoURL,

@@ -2,40 +2,43 @@ import { useLayoutEffect, useRef } from "react";
 import { useTrackVisibility } from "react-intersection-observer-hook";
 import { usePageVisibility } from "react-page-visibility";
 
-import type { ProjectWrapperProps } from "./types";
 import Gradient from "effects/Gradients";
+import { ProjectWrapperProps } from "./types";
 
 const _ACTIVATE_DEBUG_MODE = false;
+
+const debuggerStyles = _ACTIVATE_DEBUG_MODE ? { border: "1px solid red" } : {};
 
 const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   initializer,
   children,
   id,
 }) => {
-  let [trackingRef, { isVisible }] = useTrackVisibility();
+  const [trackingRef, { isVisible }] = useTrackVisibility();
   const isPageVisible = usePageVisibility();
-  const wrapper = useRef<null | HTMLElement>(null);
-  const gradient = useRef<null | Gradient>(null);
+
+  const wrapperRef = useRef<null | HTMLCanvasElement>(null);
+  const gradientRef = useRef<null | Gradient>(null);
 
   if (typeof window !== "undefined") {
     useLayoutEffect(() => {
-      if (wrapper.current !== null) {
-        gradient.current = new Gradient() as any;
+      if (wrapperRef.current !== null && gradientRef.current === null) {
+        gradientRef.current = new Gradient() as any;
         // @ts-ignore: Unreachable code error
-        gradient.current?.initGradient("#" + wrapper.current.id);
-        initializer && initializer(gradient.current);
+        gradientRef.current.initGradient("#" + wrapperRef.current.id);
+        initializer && initializer(gradientRef.current);
       }
-    }, [wrapper]);
+    }, [wrapperRef]);
 
     useLayoutEffect(() => {
       if (isPageVisible && isVisible) {
         // @ts-ignore: Unreachable code error
-        gradient.current?.play();
+        gradientRef.current?.play();
       } else {
         // @ts-ignore: Unreachable code error
-        gradient.current?.pause();
+        gradientRef.current?.pause();
       }
-    }, [gradient, isPageVisible, isVisible]);
+    }, [isPageVisible, isVisible]);
   }
 
   return (
@@ -45,13 +48,13 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
         <div
           ref={trackingRef}
           className="h-[200px] w-1 bg-transparent"
-          style={_ACTIVATE_DEBUG_MODE ? { border: "1px solid red" } : {}}
+          style={debuggerStyles}
         ></div>
       </div>
       <canvas
         id={id}
         style={{ width: `100vw`, height: 900 }}
-        ref={(e) => (wrapper.current = e)}
+        ref={wrapperRef}
       ></canvas>
       {children}
     </div>
