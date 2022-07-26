@@ -31,7 +31,13 @@ const Home: NextPage = () => {
         <div className="container">
           <section className="relative bg-gray-5">
             <div className="bg-gray-5 w-18 sm:w-[50%] mx-auto md:w-full flex items-center justify-center mt-5">
-              <Image src={image1} placeholder="blur" className="mx-4" />
+              <Image
+                src={image1}
+                placeholder="blur"
+                className="mx-4"
+                alt="artwork"
+                priority
+              />
             </div>
             <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
               <h1
@@ -116,18 +122,18 @@ const Home: NextPage = () => {
               </h1>
               <ul className="flex items-center justify-between px-1-5">
                 <li className="hover:opacity-60">
-                  <a href={outroContent.github} target="_blank">
+                  <a href={outroContent.github} target="_blank" aria-label="Github">
                     <FontAwesomeIcon icon={["fab", "github"]} size="2x" />
                   </a>
                 </li>
                 <li className="hover:opacity-60">
-                  <a href={outroContent.linkedin} target="_blank">
+                  <a href={outroContent.linkedin} target="_blank" aria-label="Linkedin">
                     <FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" />
                   </a>
                 </li>
                 <li className="hover:opacity-60">
-                  <a href={"mailto:" + outroContent.email}>
-                    <FontAwesomeIcon icon={["fas", "envelope"]} size="2x" />
+                  <a href={"mailto:" + outroContent.email} aria-label="Email">
+                    <FontAwesomeIcon icon="envelope" size="2x" />
                   </a>
                 </li>
               </ul>

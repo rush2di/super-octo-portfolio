@@ -1,10 +1,16 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { OutlineBtnProps, OutlineBtnWrapperProps } from "../types";
 
+const OutlineBtnDefaults = {
+  icon: "external-link-alt" as IconProp,
+  makeDark: false,
+};
+
 const OutlineBtn = ({
   href,
-  icon = ["fas", "star"],
-  makeDark = false,
+  icon = OutlineBtnDefaults.icon,
+  makeDark = OutlineBtnDefaults.makeDark,
   text,
 }: OutlineBtnProps) => {
   return (
