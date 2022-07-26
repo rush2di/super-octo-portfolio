@@ -34,8 +34,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-./public/sitemap-0.xml
-./public/sitemap.xml
+/public/robots.txt
+/public/sitemap-0.xml
+/public/sitemap.xml
 
 # typescript
 *.tsbuildinfo
