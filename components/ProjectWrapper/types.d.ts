@@ -6,6 +6,5 @@ export interface ProjectWrapperProps extends ProjectWrapperStaticProps {
 
 export interface ProjectWrapperStaticProps {
   initializer?: (e: any) => void;
-  classNames: string;
   id: string;
 }

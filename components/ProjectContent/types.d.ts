@@ -12,6 +12,7 @@ export interface ProjectContentProps {
   designURL?: string;
   repoURL?: string;
   demoURL?: string;
+  year: string;
 }
 
 export interface DetailsListProps {

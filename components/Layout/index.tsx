@@ -1,11 +1,12 @@
-import GrainScreen from "components/GrainScreen";
+import GrainOpt from "components/GrainOpt";
+import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
 
 const Layout = ({ children }) => {
   return (
     <div>
-      <GrainScreen />
+      <GrainOpt />
       <Header />
       <HeaderMobile />
       <div className="guides__wrapper">
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
       <main className="mt-2 min-h-screen">{children}</main>
+      <Footer />
     </div>
   );
 };

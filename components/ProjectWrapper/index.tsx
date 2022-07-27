@@ -1,52 +1,70 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useTrackVisibility } from "react-intersection-observer-hook";
 import { usePageVisibility } from "react-page-visibility";
 
 import Gradient from "effects/Gradients";
-import type { ProjectWrapperProps } from "./types";
+import { ProjectWrapperProps } from "./types";
 
-const ProjectWrapper = ({
+const _ACTIVATE_DEBUG_MODE = false;
+
+const debuggerStyles = _ACTIVATE_DEBUG_MODE ? { border: "1px solid red" } : {};
+
+const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   initializer,
-  classNames,
   children,
   id,
-}: ProjectWrapperProps) => {
-  let [containerRef, { isVisible }] = useTrackVisibility();
+}) => {
+  const [trackingRef, { isVisible }] = useTrackVisibility();
   const isPageVisible = usePageVisibility();
-  const wrapper = useRef<null | HTMLElement>(null);
-  const gradient = useRef<null | Gradient>(null);
+
+  const wrapperRef = useRef<null | HTMLCanvasElement>(null);
+  const gradientRef = useRef<null | Gradient>(null);
 
   if (typeof window !== "undefined") {
     useLayoutEffect(() => {
-      if (wrapper.current !== null) {
-        gradient.current = new Gradient() as any;
+      if (wrapperRef.current !== null && gradientRef.current === null) {
+        gradientRef.current = new Gradient() as any;
         // @ts-ignore: Unreachable code error
-        gradient.current?.initGradient("#" + wrapper.current.id);
-        initializer && initializer(gradient.current);
+        gradientRef.current.initGradient("#" + wrapperRef.current.id);
+        initializer && initializer(gradientRef.current);
       }
-    }, [wrapper]);
+    }, [wrapperRef]);
+
+    useLayoutEffect(() => {
+      if (isPageVisible && isVisible) {
+        // @ts-ignore: Unreachable code error
+        gradientRef.current?.play();
+      } else {
+        // @ts-ignore: Unreachable code error
+        gradientRef.current?.pause();
+      }
+    }, [isPageVisible, isVisible]);
   }
 
-  useEffect(() => {
-    if (isVisible && isPageVisible) {
-      // @ts-ignore: Unreachable code error
-      gradient.current?.play();
-    } else {
-      // @ts-ignore: Unreachable code error
-      gradient.current?.pause();
-    }
-  }, [gradient, isPageVisible, isVisible]);
-
   return (
-    <div ref={containerRef} className={classNames}>
+    <div className="project-wrapper relative">
+      {_ACTIVATE_DEBUG_MODE && <DebugTicket {...{ isVisible }} />}
+      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+        <div
+          ref={trackingRef}
+          className="h-[200px] w-1 bg-transparent"
+          style={debuggerStyles}
+        ></div>
+      </div>
       <canvas
         id={id}
         style={{ width: `100vw`, height: 900 }}
-        ref={(e) => (wrapper.current = e)}
+        ref={wrapperRef}
       ></canvas>
       {children}
     </div>
   );
 };
+
+const DebugTicket: React.FC<{ isVisible: boolean }> = ({ isVisible }) => (
+  <div className="absolute top-5 left-0 bg-black text-green-500 p-1">
+    isVisible: {isVisible.toString()}
+  </div>
+);
 
 export default ProjectWrapper;
