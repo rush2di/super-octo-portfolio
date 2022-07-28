@@ -6,4 +6,6 @@ const initializer = () => {
   gradient1.conf.wireframe = true;
 };
 
-export { initializer };
+const isBrowser: boolean = typeof window !== "undefined";
+
+export { initializer, isBrowser };

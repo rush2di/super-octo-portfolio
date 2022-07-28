@@ -4,11 +4,12 @@ import { usePageVisibility } from "react-page-visibility";
 import { useDebounce } from "use-debounce";
 
 import Gradient from "effects/Gradients";
+import { isBrowser } from "helpers/utils";
 import { ProjectWrapperProps } from "./types";
 
 const _DEBUG_MODE = false;
 
-const debuggerStyles = _DEBUG_MODE ? { border: "1px solid red" } : {};
+const styles = _DEBUG_MODE ? { border: "1px solid red" } : {};
 
 const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   initializer,
@@ -22,7 +23,7 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   const wrapperRef = useRef<null | HTMLCanvasElement>(null);
   const gradientRef = useRef<null | Gradient>(null);
 
-  if (typeof window !== "undefined") {
+  if (isBrowser) {
     useLayoutEffect(() => {
       if (wrapperRef.current !== null && gradientRef.current === null) {
         gradientRef.current = new Gradient() as any;
@@ -50,7 +51,7 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
         <div
           ref={trackingRef}
           className="h-[200px] w-1 bg-transparent"
-          style={debuggerStyles}
+          style={styles}
         ></div>
       </div>
       <canvas

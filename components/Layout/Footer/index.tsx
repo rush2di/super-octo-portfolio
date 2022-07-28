@@ -1,4 +1,4 @@
-import { outroContent } from "../../../constants";
+import { pageContent } from "../../../helpers/constants";
 
 const Footer = () => {
   return (
@@ -6,7 +6,11 @@ const Footer = () => {
       <div className="flex items-center justify-center">
         <p className="text-gray-100 text-sm">
           Made with <span>🤍</span> by{" "}
-          <a href={outroContent.github} target="_blank" className="underline hover:opacity-80">
+          <a
+            href={pageContent.outroContent.github}
+            className="underline hover:opacity-80"
+            target="_blank"
+          >
             Rochdi Belhirch
           </a>
         </p>

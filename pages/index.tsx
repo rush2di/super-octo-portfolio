@@ -1,24 +1,19 @@
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
-import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 
 import SEO from "components/SEO";
 import Layout from "components/Layout";
 import Scroll from "components/Scroll";
+import Heading from "components/Heading";
 import CopyWriting from "components/CopyWriting";
 import ProjectWrapper from "components/ProjectWrapper";
 import ProjectContent from "components/ProjectContent";
+import { pageContent } from "helpers/constants";
+import image1 from "public/images/hero.png";
 
-import {
-  animationVariants,
-  heroContent,
-  introContent,
-  outroContent,
-  projects,
-} from "../constants";
-import image1 from "../public/images/hero.png";
+const { heroContent, introContent, outroContent, projects } = pageContent;
 
 const Home: NextPage = () => {
   return (
@@ -40,38 +35,7 @@ const Home: NextPage = () => {
               />
             </div>
             <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col h-[500px] xl:h-[486px]">
-              <h1
-                id="main_heading"
-                className="font-comp text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl my-auto leading-[1.4] sm:leading-[1.2] text-center mx-auto sm:mx-0 sm:text-left md:mb-3-25"
-              >
-                <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={animationVariants[0]}
-                  >
-                    {heroContent.title[0]}
-                  </motion.div>
-                </span>
-                <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={animationVariants[1]}
-                  >
-                    {heroContent.title[1]}
-                  </motion.div>
-                </span>
-                <span className="block capitalize overflow-hidden mix-blend-difference text-gray-200">
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={animationVariants[2]}
-                  >
-                    {heroContent.title[2]}
-                  </motion.div>
-                </span>
-              </h1>
+              <Heading />
               <div className="flex w-full sm:grid sm:grid-cols-6 lg:grid-cols-12 items-center">
                 <div className="hidden sm:block min-w-full h-[1px] bg-gray-5 mix-blend-difference sm:col-span-3 md:col-span-4 lg:col-span-9"></div>
                 <div className="px-1 w-full sm:col-span-3 md:col-span-2 lg:col-span-3">
@@ -107,7 +71,10 @@ const Home: NextPage = () => {
           className="mt-5 relative z-20 w-full mx-auto bg-gray-5 shadow-gray-5 shadow-[0_0_120px_110px] py-2"
         >
           {projects.map(({ id, initializer, ...data }) => (
-            <div key={uuid()} className="project snap-center h-full w-full snap-always will-change-contents">
+            <div
+              key={uuid()}
+              className="project snap-center h-full w-full snap-always will-change-contents"
+            >
               <ProjectWrapper id={id} initializer={initializer}>
                 <ProjectContent {...data} />
               </ProjectWrapper>
@@ -122,12 +89,20 @@ const Home: NextPage = () => {
               </h1>
               <ul className="flex items-center justify-between px-1-5">
                 <li className="hover:opacity-60">
-                  <a href={outroContent.github} target="_blank" aria-label="Github">
+                  <a
+                    href={outroContent.github}
+                    target="_blank"
+                    aria-label="Github"
+                  >
                     <FontAwesomeIcon icon={["fab", "github"]} size="2x" />
                   </a>
                 </li>
                 <li className="hover:opacity-60">
-                  <a href={outroContent.linkedin} target="_blank" aria-label="Linkedin">
+                  <a
+                    href={outroContent.linkedin}
+                    target="_blank"
+                    aria-label="Linkedin"
+                  >
                     <FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" />
                   </a>
                 </li>

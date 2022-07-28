@@ -1,8 +1,8 @@
-import resolveConfig from "tailwindcss/resolveConfig";
 import { useLayoutEffect, useRef } from "react";
-import { useMedia } from "react-use";
+import resolveConfig from "tailwindcss/resolveConfig";
 
 import tailwindConfig from "tailwind.config.js";
+import useMedia from "helpers/useMedia";
 import Grain from "effects/Grain";
 
 const _TW_CONFIG = resolveConfig(tailwindConfig);
