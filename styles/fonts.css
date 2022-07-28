@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Regular.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Light.woff") format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Medium.woff") format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-Bold.woff") format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Azo Sans";
+  src: url("../public/fonts/AzoSans/AzoSans-BoldItalic.woff") format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bely Display";
+  src: url("../public/fonts/BelyDisplay/BelyDisplayW00Regular.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

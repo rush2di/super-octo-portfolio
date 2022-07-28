@@ -7,6 +7,7 @@
  *   commented out for now.
  */
 
+//Converting colors to proper format
 function normalizeColor(hexCode) {
   return [
     ((hexCode >> 16) & 255) / 255,
@@ -15,16 +16,25 @@ function normalizeColor(hexCode) {
   ];
 }
 ["SCREEN", "LINEAR_LIGHT"].reduce(
-  (hexCode, t, n) => Object.assign(hexCode, { [t]: n }),
+  (hexCode, t, n) =>
+    Object.assign(hexCode, {
+      [t]: n,
+    }),
   {}
 );
+
+//Essential functionality of WebGl
+//t = width
+//n = height
 class MiniGl {
-  constructor(canvas, width, height, debug = !1) {
+  constructor(canvas, width, height, debug = false) {
     const _miniGl = this,
       debug_output =
         -1 !== document.location.search.toLowerCase().indexOf("debug=webgl");
     (_miniGl.canvas = canvas),
-      (_miniGl.gl = _miniGl.canvas.getContext("webgl", { antialias: !0 })),
+      (_miniGl.gl = _miniGl.canvas.getContext("webgl", {
+        antialias: true,
+      })),
       (_miniGl.meshes = []);
     const context = _miniGl.gl;
     width && height && this.setSize(width, height),
@@ -46,7 +56,7 @@ class MiniGl {
           : () => {}),
       Object.defineProperties(_miniGl, {
         Material: {
-          enumerable: !1,
+          enumerable: false,
           value: class {
             constructor(vertexShaders, fragments, uniforms = {}) {
               const material = this;
@@ -70,44 +80,47 @@ class MiniGl {
                   )
                   .join("\n");
               }
-              (this.uniforms = uniforms), (this.uniformInstances = []);
+              (material.uniforms = uniforms), (material.uniformInstances = []);
+
               const prefix =
                 "\n              precision highp float;\n            ";
-              (this.vertexSource = `\n              ${prefix}\n              attribute vec4 position;\n              attribute vec2 uv;\n              attribute vec2 uvNorm;\n              ${getUniformVariableDeclarations(
+              (material.vertexSource = `\n              ${prefix}\n              attribute vec4 position;\n              attribute vec2 uv;\n              attribute vec2 uvNorm;\n              ${getUniformVariableDeclarations(
                 _miniGl.commonUniforms,
                 "vertex"
               )}\n              ${getUniformVariableDeclarations(
                 uniforms,
                 "vertex"
               )}\n              ${vertexShaders}\n            `),
-                (this.Source = `\n              ${prefix}\n              ${getUniformVariableDeclarations(
+                (material.Source = `\n              ${prefix}\n              ${getUniformVariableDeclarations(
                   _miniGl.commonUniforms,
                   "fragment"
                 )}\n              ${getUniformVariableDeclarations(
                   uniforms,
                   "fragment"
                 )}\n              ${fragments}\n            `),
-                (this.vertexShader = getShaderByType(
+                (material.vertexShader = getShaderByType(
                   context.VERTEX_SHADER,
-                  this.vertexSource
+                  material.vertexSource
                 )),
-                (this.fragmentShader = getShaderByType(
+                (material.fragmentShader = getShaderByType(
                   context.FRAGMENT_SHADER,
-                  this.Source
+                  material.Source
                 )),
-                (this.program = context.createProgram()),
-                context.attachShader(this.program, this.vertexShader),
-                context.attachShader(this.program, this.fragmentShader),
-                context.linkProgram(this.program),
+                (material.program = context.createProgram()),
+                context.attachShader(material.program, material.vertexShader),
+                context.attachShader(material.program, material.fragmentShader),
+                context.linkProgram(material.program),
                 context.getProgramParameter(
-                  this.program,
+                  material.program,
                   context.LINK_STATUS
-                ) || console.error(context.getProgramInfoLog(this.program)),
-                context.useProgram(this.program),
-                this.attachUniforms(void 0, _miniGl.commonUniforms),
-                this.attachUniforms(void 0, this.uniforms);
+                ) || console.error(context.getProgramInfoLog(material.program)),
+                context.useProgram(material.program),
+                material.attachUniforms(void 0, _miniGl.commonUniforms),
+                material.attachUniforms(void 0, material.uniforms);
             }
+            //t = uniform
             attachUniforms(name, uniforms) {
+              //n  = material
               const material = this;
               void 0 === name
                 ? Object.entries(uniforms).forEach(([name, uniform]) => {
@@ -139,17 +152,16 @@ class MiniGl {
           enumerable: !1,
           value: class {
             constructor(e) {
-              (this.type = "float"),
-                Object.assign(this, e),
-                (this.typeFn =
-                  {
-                    float: "1f",
-                    int: "1i",
-                    vec2: "2fv",
-                    vec3: "3fv",
-                    vec4: "4fv",
-                    mat4: "Matrix4fv",
-                  }[this.type] || "1f"),
+              (this.type = "float"), Object.assign(this, e);
+              (this.typeFn =
+                {
+                  float: "1f",
+                  int: "1i",
+                  vec2: "2fv",
+                  vec3: "3fv",
+                  vec4: "4fv",
+                  mat4: "Matrix4fv",
+                }[this.type] || "1f"),
                 this.update();
             }
             update(value) {
@@ -162,6 +174,9 @@ class MiniGl {
                   0 === this.typeFn.indexOf("Matrix") ? this.value : null
                 );
             }
+            //e - name
+            //t - type
+            //n - length
             getDeclaration(name, type, length) {
               const uniform = this;
               if (uniform.excludeFrom !== type) {
@@ -179,7 +194,8 @@ class MiniGl {
                     (name_no_prefix =
                       name_no_prefix.charAt(0).toUpperCase() +
                       name_no_prefix.slice(1)),
-                    `uniform struct ${name_no_prefix} \n                                {\n` +
+                    `uniform struct ${name_no_prefix} 
+                                {\n` +
                       Object.entries(uniform.value)
                         .map(([name, uniform]) =>
                           uniform
@@ -321,7 +337,9 @@ class MiniGl {
                   }
                 ),
                 _miniGl.meshes.push(mesh),
-                _miniGl.debug("Mesh.constructor", { mesh: mesh });
+                _miniGl.debug("Mesh.constructor", {
+                  mesh: mesh,
+                });
             }
             draw() {
               context.useProgram(this.material.program),
@@ -396,10 +414,22 @@ class MiniGl {
       });
     const a = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
     _miniGl.commonUniforms = {
-      projectionMatrix: new _miniGl.Uniform({ type: "mat4", value: a }),
-      modelViewMatrix: new _miniGl.Uniform({ type: "mat4", value: a }),
-      resolution: new _miniGl.Uniform({ type: "vec2", value: [1, 1] }),
-      aspectRatio: new _miniGl.Uniform({ type: "float", value: 1 }),
+      projectionMatrix: new _miniGl.Uniform({
+        type: "mat4",
+        value: a,
+      }),
+      modelViewMatrix: new _miniGl.Uniform({
+        type: "mat4",
+        value: a,
+      }),
+      resolution: new _miniGl.Uniform({
+        type: "vec2",
+        value: [1, 1],
+      }),
+      aspectRatio: new _miniGl.Uniform({
+        type: "float",
+        value: 1,
+      }),
     };
   }
   setSize(e = 640, t = 480) {
@@ -410,8 +440,12 @@ class MiniGl {
       this.gl.viewport(0, 0, e, t),
       (this.commonUniforms.resolution.value = [e, t]),
       (this.commonUniforms.aspectRatio.value = e / t),
-      this.debug("MiniGL.setSize", { width: e, height: t });
+      this.debug("MiniGL.setSize", {
+        width: e,
+        height: t,
+      });
   }
+  //left, right, top, bottom, near, far
   setOrthographicCamera(e = 0, t = 0, n = 0, i = -2e3, s = 2e3) {
     (this.commonUniforms.projectionMatrix.value = [
       2 / this.width,
@@ -442,6 +476,8 @@ class MiniGl {
       this.meshes.forEach((e) => e.draw());
   }
 }
+
+//Sets initial properties
 function e(object, propertyName, val) {
   return (
     propertyName in object
@@ -455,6 +491,8 @@ function e(object, propertyName, val) {
     object
   );
 }
+
+//Gradient object
 class Gradient {
   constructor(...t) {
     e(this, "el", void 0),
@@ -463,7 +501,11 @@ class Gradient {
       e(this, "angle", 0),
       e(this, "isLoadedClass", !1),
       e(this, "isScrolling", !1),
-      e(this, "scrollingTimeout", void 0),
+      /*e(this, "isStatic", o.disableAmbientAnimations()),*/ e(
+        this,
+        "scrollingTimeout",
+        void 0
+      ),
       e(this, "scrollingRefreshDelay", 200),
       e(this, "isIntersecting", !1),
       e(this, "shaderFiles", void 0),
@@ -540,11 +582,11 @@ class Gradient {
         }
         if (0 !== this.last && this.isStatic)
           return this.minigl.render(), void this.disconnect();
-        (this.conf.playing || this.isMouseDown) &&
+        /*this.isIntersecting && */ (this.conf.playing || this.isMouseDown) &&
           requestAnimationFrame(this.animate);
       }),
       e(this, "addIsLoadedClass", () => {
-        !this.isLoadedClass &&
+        /*this.isIntersecting && */ !this.isLoadedClass &&
           ((this.isLoadedClass = !0),
           this.el.classList.add("isLoaded"),
           setTimeout(() => {
@@ -552,18 +594,16 @@ class Gradient {
           }, 3e3));
       }),
       e(this, "pause", () => {
-        this.conf.playing = !1;
+        this.conf.playing = false;
       }),
       e(this, "play", () => {
-        requestAnimationFrame(this.animate), (this.conf.playing = !0);
+        requestAnimationFrame(this.animate), (this.conf.playing = true);
       }),
-      e(
-        this,
-        "initGradient",
-        (selector) => (
-          (this.el = document.querySelector(selector)), this.connect(), this
-        )
-      );
+      e(this, "initGradient", (selector) => {
+        this.el = document.querySelector(selector);
+        this.connect();
+        return this;
+      });
   }
   async connect() {
     (this.shaderFiles = {
@@ -578,11 +618,11 @@ class Gradient {
     }),
       (this.conf = {
         presetName: "",
-        wireframe: !1,
+        wireframe: false,
         density: [0.06, 0.16],
         zoom: 1,
         rotation: 0,
-        playing: !0,
+        playing: true,
       }),
       document.querySelectorAll("canvas").length < 1
         ? console.log("DID NOT LOAD HERO STRIPE CANVAS")
@@ -592,6 +632,15 @@ class Gradient {
               ((this.computedCanvasStyle = getComputedStyle(this.el)),
               this.waitForCssVars());
           }));
+          /*
+        this.scrollObserver = await s.create(.1, !1),
+        this.scrollObserver.observe(this.el),
+        this.scrollObserver.onSeparate(() => {
+            window.removeEventListener("scroll", this.handleScroll), window.removeEventListener("mousedown", this.handleMouseDown), window.removeEventListener("mouseup", this.handleMouseUp), window.removeEventListener("keydown", this.handleKeyDown), this.isIntersecting = !1, this.conf.playing && this.pause()
+        }), 
+        this.scrollObserver.onIntersect(() => {
+            window.addEventListener("scroll", this.handleScroll), window.addEventListener("mousedown", this.handleMouseDown), window.addEventListener("mouseup", this.handleMouseUp), window.addEventListener("keydown", this.handleKeyDown), this.isIntersecting = !0, this.addIsLoadedClass(), this.play()
+        })*/
   }
   disconnect() {
     this.scrollObserver &&
@@ -604,8 +653,12 @@ class Gradient {
   }
   initMaterial() {
     this.uniforms = {
-      u_time: new this.minigl.Uniform({ value: 0 }),
-      u_shadow_power: new this.minigl.Uniform({ value: 5 }),
+      u_time: new this.minigl.Uniform({
+        value: 0,
+      }),
+      u_shadow_power: new this.minigl.Uniform({
+        value: 10,
+      }),
       u_darken_top: new this.minigl.Uniform({
         value: "" === this.el.dataset.jsDarkenTop ? 1 : 0,
       }),
@@ -619,7 +672,9 @@ class Gradient {
             value: [this.freqX, this.freqY],
             type: "vec2",
           }),
-          noiseSpeed: new this.minigl.Uniform({ value: 5e-6 }),
+          noiseSpeed: new this.minigl.Uniform({
+            value: 5e-6,
+          }),
         },
         type: "struct",
       }),
@@ -628,13 +683,28 @@ class Gradient {
           incline: new this.minigl.Uniform({
             value: Math.sin(this.angle) / Math.cos(this.angle),
           }),
-          offsetTop: new this.minigl.Uniform({ value: -0.5 }),
-          offsetBottom: new this.minigl.Uniform({ value: -0.5 }),
-          noiseFreq: new this.minigl.Uniform({ value: [3, 4], type: "vec2" }),
-          noiseAmp: new this.minigl.Uniform({ value: this.amp }),
-          noiseSpeed: new this.minigl.Uniform({ value: 10 }),
-          noiseFlow: new this.minigl.Uniform({ value: 3 }),
-          noiseSeed: new this.minigl.Uniform({ value: this.seed }),
+          offsetTop: new this.minigl.Uniform({
+            value: -0.5,
+          }),
+          offsetBottom: new this.minigl.Uniform({
+            value: -0.5,
+          }),
+          noiseFreq: new this.minigl.Uniform({
+            value: [3, 4],
+            type: "vec2",
+          }),
+          noiseAmp: new this.minigl.Uniform({
+            value: this.amp,
+          }),
+          noiseSpeed: new this.minigl.Uniform({
+            value: 10,
+          }),
+          noiseFlow: new this.minigl.Uniform({
+            value: 3,
+          }),
+          noiseSeed: new this.minigl.Uniform({
+            value: this.seed,
+          }),
         },
         type: "struct",
         excludeFrom: "fragment",
@@ -665,11 +735,21 @@ class Gradient {
               ],
               type: "vec2",
             }),
-            noiseSpeed: new this.minigl.Uniform({ value: 11 + 0.3 * e }),
-            noiseFlow: new this.minigl.Uniform({ value: 6.5 + 0.3 * e }),
-            noiseSeed: new this.minigl.Uniform({ value: this.seed + 10 * e }),
-            noiseFloor: new this.minigl.Uniform({ value: 0.1 }),
-            noiseCeil: new this.minigl.Uniform({ value: 0.63 + 0.07 * e }),
+            noiseSpeed: new this.minigl.Uniform({
+              value: 11 + 0.3 * e,
+            }),
+            noiseFlow: new this.minigl.Uniform({
+              value: 6.5 + 0.3 * e,
+            }),
+            noiseSeed: new this.minigl.Uniform({
+              value: this.seed + 10 * e,
+            }),
+            noiseFloor: new this.minigl.Uniform({
+              value: 0.1,
+            }),
+            noiseCeil: new this.minigl.Uniform({
+              value: 0.63 + 0.07 * e,
+            }),
           },
           type: "struct",
         })
@@ -722,6 +802,10 @@ class Gradient {
       requestAnimationFrame(this.animate),
       window.addEventListener("resize", this.resize);
   }
+  /*
+   * Waiting for the css variables to become available, usually on page load before we can continue.
+   * Using default colors assigned below if no variables have been found after maxCssVarRetries
+   */
   waitForCssVars() {
     if (
       this.computedCanvasStyle &&
@@ -734,14 +818,18 @@ class Gradient {
     else {
       if (
         ((this.cssVarRetries += 1), this.cssVarRetries > this.maxCssVarRetries)
-      )
+      ) {
         return (
           (this.sectionColors = [16711680, 16711680, 16711935, 65280, 255]),
           void this.init()
         );
+      }
       requestAnimationFrame(() => this.waitForCssVars());
     }
   }
+  /*
+   * Initializes the four section colors by retrieving them from css variables.
+   */
   initGradientColors() {
     this.sectionColors = [
       "--gradient-color-1",
@@ -753,6 +841,7 @@ class Gradient {
         let hex = this.computedCanvasStyle
           .getPropertyValue(cssPropertyName)
           .trim();
+        //Check if shorthand hex value was used and double the length so the conversion in normalizeColor will work.
         if (4 === hex.length) {
           const hexTemp = hex
             .substr(1)

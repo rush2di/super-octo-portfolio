@@ -41,7 +41,7 @@ const SEO = ({ title, description }: SeoProps) => {
           name="keywords"
           content="web developer,frontend specialist,React developer,Rochdi Belhirch,mobile developer,UI/UX design,web designer,React developer"
         ></meta>
-        <title>ROCHDI BELHIRCH | {title}</title>
+        <title>{title} | ROCHDI BELHIRCH</title>
       </Head>
     </>
   );

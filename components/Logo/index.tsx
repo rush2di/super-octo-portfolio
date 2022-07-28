@@ -8,6 +8,7 @@ const Logo = () => {
           src="/images/rb_logo.svg"
           layout="fill"
           alt="Rochdi Belhirch logo"
+          priority
         />
       </div>
       <div className="block ml-0-5 sm:ml-1">
