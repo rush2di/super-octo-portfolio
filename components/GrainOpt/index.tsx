@@ -8,7 +8,7 @@ const GrainOpt = () => {
   return (
     <div
       style={styles}
-      className="w-screen h-screen fixed z-50 top-0 left-0 pointer-events-none opacity-[0.1]"
+      className="w-screen h-screen fixed z-50 top-0 left-0 pointer-events-none opacity-[0.1] hidden sm:block"
     ></div>
   );
 };

@@ -133,7 +133,7 @@ const containerAnimation = {
     opacity: 1,
     transition: {
       delay: 1.5,
-      staggerChildren: 0.75,
+      staggerChildren: 0.5,
     },
   },
 };
