@@ -444,11 +444,6 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-fontfaceobserver@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz#e2705d293e2c585a6531c2a722905657317a2991"
-  integrity sha512-ReOsO2F66jUa0jmv2nlM/s1MiutJx/srhAe2+TE8dJCMi02ZZOcCTxTCQFr3Yet+uODUtnr4Mewg+tNQ+4V1Ng==
-
 fraction.js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
@@ -798,14 +793,6 @@ react-page-visibility@^7.0.0:
   dependencies:
     prop-types "^15.7.2"
 
-react@17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 react@18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
@@ -943,14 +930,6 @@ use-debounce@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.3.tgz#2b4d7d7307a9397acb6520b7a1dea14c2c3d108c"
   integrity sha512-BV7xuVy4LS0HtzHb23sDwAjfNjdBWlc4oyjJLcdCoVAjPv1+hroZYsCXX4VfRJT+8sLaqCftBOO8l7CMQtn9Gw==
-
-use-font-face-observer@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/use-font-face-observer/-/use-font-face-observer-1.2.1.tgz#2b33a389b82b48e2744f439abc1d5d6201fc099d"
-  integrity sha512-5ieKTMvtUux0l7YoOEz842djfgMH3oVg+tO13E/kyS+gGRLDyfAMmRv0D3fzM7UdFag1kz+3AQIFLkkfEF3TUg==
-  dependencies:
-    fontfaceobserver "2.1.0"
-    react "17.0.2"
 
 use-sync-external-store@1.1.0:
   version "1.1.0"
