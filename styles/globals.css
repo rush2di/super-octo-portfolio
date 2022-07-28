@@ -95,7 +95,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth bg-gray-5;
+    @apply scroll-smooth bg-gray-5 snap-y snap-proximity;
   }
   body {
     @apply bg-gray-5 text-gray-500 font-prim;

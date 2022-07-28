@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   return (
     <>
       <SEO
-        title={`Portfolio`}
+        title={`PORTFOLIO`}
         description={`A creative developer building modern websites with the latest technologies. I specialize frontend development bringing great designs to life with tools like React and JavaScript animation libraries.`}
       />
       <Layout>
@@ -107,7 +107,7 @@ const Home: NextPage = () => {
           className="mt-5 relative z-20 w-full mx-auto bg-gray-5 shadow-gray-5 shadow-[0_0_120px_110px] py-2"
         >
           {projects.map(({ id, initializer, ...data }) => (
-            <div key={uuid()} className="project">
+            <div key={uuid()} className="project snap-center h-full w-full snap-always will-change-contents">
               <ProjectWrapper id={id} initializer={initializer}>
                 <ProjectContent {...data} />
               </ProjectWrapper>

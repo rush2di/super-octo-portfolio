@@ -1,13 +1,14 @@
 import { useLayoutEffect, useRef } from "react";
 import { useTrackVisibility } from "react-intersection-observer-hook";
 import { usePageVisibility } from "react-page-visibility";
+import { useDebounce } from "use-debounce";
 
 import Gradient from "effects/Gradients";
 import { ProjectWrapperProps } from "./types";
 
-const _ACTIVATE_DEBUG_MODE = false;
+const _DEBUG_MODE = false;
 
-const debuggerStyles = _ACTIVATE_DEBUG_MODE ? { border: "1px solid red" } : {};
+const debuggerStyles = _DEBUG_MODE ? { border: "1px solid red" } : {};
 
 const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   initializer,
@@ -15,6 +16,7 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   id,
 }) => {
   const [trackingRef, { isVisible }] = useTrackVisibility();
+  const [debouncedVisibility] = useDebounce(isVisible, 1000);
   const isPageVisible = usePageVisibility();
 
   const wrapperRef = useRef<null | HTMLCanvasElement>(null);
@@ -31,19 +33,19 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
     }, [wrapperRef]);
 
     useLayoutEffect(() => {
-      if (isPageVisible && isVisible) {
+      if (isPageVisible && debouncedVisibility) {
         // @ts-ignore: Unreachable code error
         gradientRef.current?.play();
       } else {
         // @ts-ignore: Unreachable code error
         gradientRef.current?.pause();
       }
-    }, [isPageVisible, isVisible]);
+    }, [isPageVisible, debouncedVisibility]);
   }
 
   return (
     <div className="project-wrapper relative">
-      {_ACTIVATE_DEBUG_MODE && <DebugTicket {...{ isVisible }} />}
+      {_DEBUG_MODE && <DebugTicket {...{ debouncedVisibility }} />}
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
         <div
           ref={trackingRef}
@@ -61,9 +63,11 @@ const ProjectWrapper: React.FC<ProjectWrapperProps> = ({
   );
 };
 
-const DebugTicket: React.FC<{ isVisible: boolean }> = ({ isVisible }) => (
+const DebugTicket: React.FC<{ debouncedVisibility: boolean }> = ({
+  debouncedVisibility,
+}) => (
   <div className="absolute top-5 left-0 bg-black text-green-500 p-1">
-    isVisible: {isVisible.toString()}
+    isVisible: {debouncedVisibility.toString()}
   </div>
 );
 

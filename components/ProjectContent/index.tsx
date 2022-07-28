@@ -45,7 +45,7 @@ const ProjectContent = ({
           <div className="flex items-center justify-between h-full px-1">
             <div className="flex flex-col pb-2 sm:pb-0">
               <div className="mb-1">
-                <Image src={altLogo} alt={`${title} logo`} placeholder="blur" />
+                <Image src={altLogo} alt={`${title} logo`} placeholder="blur" priority />
               </div>
               <h1
                 className={`${
@@ -113,7 +113,7 @@ const ProjectContent = ({
             </div>
             <div className="hidden md:block">
               {logo && (
-                <Image src={logo} alt={`${title} logo`} placeholder="blur" />
+                <Image src={logo} alt={`${title} logo`} placeholder="blur" priority />
               )}
             </div>
           </div>

@@ -21,6 +21,7 @@
     "react-intersection-observer-hook": "^2.0.4",
     "react-page-visibility": "^7.0.0",
     "react-use": "^17.4.0",
+    "use-debounce": "^8.0.3",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
