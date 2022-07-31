@@ -71,7 +71,7 @@ const pageContent = {
       cover: require("public/images/echo_cover.png"),
       altLogo: require("public/images/logo_echo_alt.png"),
       title: `ECHOBOARD`,
-      compTitle: `Music player - Personal project`,
+      compTitle: `Music player - Personal/Work in Progress`,
       missionTags: [`UI Design`, `Frontend`, `Backend`],
       techTags: [
         `NextJs`,
