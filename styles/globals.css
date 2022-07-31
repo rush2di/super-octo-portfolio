@@ -152,6 +152,15 @@
   --gradient-color-4: #000000;
 }
 
+@media screen and (min-width: 1670px) {
+  .projects {
+    max-width: 1670px !important;
+  }
+  .projects .project {
+    margin-bottom: 3rem;
+  }
+}
+
 @supports (mix-blend-mode: difference) {
   #main_heading {
     color: #656565;
