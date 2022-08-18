@@ -40,7 +40,6 @@ const pageContent = {
       techTags: [`NextJs`, `Sass`, `Gsap`, `JamStack`],
       primaryColors: [`#cc2e2e`, `#ffffff`],
       secondaryColors: [`#2d2d2d`, `#ffffff`],
-      repoURL: `https://gitfront.io/r/user-5823705/Fn434xnvHYnL/JrdesignV2/`,
       demoURL: `https://www.jrdesign.no/`,
     },
     {
