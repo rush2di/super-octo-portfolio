@@ -40,7 +40,7 @@ const pageContent = {
       techTags: [`NextJs`, `Sass`, `Gsap`, `JamStack`],
       primaryColors: [`#cc2e2e`, `#ffffff`],
       secondaryColors: [`#2d2d2d`, `#ffffff`],
-      demoURL: `https://www.jrdesign.no/`,
+      demoURL: `https://jrdesign-v2.vercel.app/`,
     },
     {
       year: "2022",
