@@ -2,20 +2,20 @@ import { ProjectsDetailsType } from "types";
 
 const pageContent = {
   heroContent: {
-    title: ["Rochdi Belhirch", "creative frontend", "developer & designer"],
+    title: ["Rochdi Belhirch", "creative fullstack", "developer & designer"],
     comp: `Design minded web & mobile apps developer based in Morocco`,
   },
   introContent: {
     about: {
       title: `About me`,
-      text: `At the crossroads between UX/UI design and frontend development, I aim to create adaptable and responsive websites where motion, interaction and design are perfectly integrated to form a unique experience.
+      text: `At the crossroads between UX/UI design and fullstack development, I aim to create adaptable and responsive websites where motion, interaction and design are perfectly integrated to form a unique experience.
           
           I aim for simplicity, clarity and originality in my work through designs where the role of every pixel is well thought and respected in development.
           `,
     },
     technicalSkills: {
       title: `Technical Skills`,
-      text: `For development I work with technologies like ReactJs, React Native, NextJs, NodeJs, Sass, Gulp, Graphql, GatsbyJs, Tailwindcss, Bootstrap, TypeScript, Redux, Firebase, WordPress, Php, Git, and Github.
+      text: `For development I work with technologies like ReactJs, React Native, NextJs, NodeJs, Sass, Gulp, Graphql, GatsbyJs, Tailwindcss, Bootstrap, TypeScript, Redux, Firebase, WordPress, Prisma, JWT, MongoDB, Php, Git, and Github.
   
       For design I use Figma, Adobe XD, and Adobe Photoshop.`,
     },
