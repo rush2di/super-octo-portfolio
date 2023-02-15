@@ -16,7 +16,7 @@ const Logo = () => {
           Rochdi Belhirch
         </span>
         <span className="text-sm text-gray-900 block font-normal">
-          Designer &#38; Frontend Developer
+          Designer &#38; Fullstack Developer
         </span>
       </div>
     </div>
