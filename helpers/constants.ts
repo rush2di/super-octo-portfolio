@@ -40,7 +40,7 @@ const pageContent = {
       techTags: [`NextJs`, `Sass`, `Gsap`, `JamStack`],
       primaryColors: [`#cc2e2e`, `#ffffff`],
       secondaryColors: [`#2d2d2d`, `#ffffff`],
-      demoURL: `https://jrdesign-v2.vercel.app/`,
+      demoURL: `https://jrdesign.vercel.app/`,
     },
     {
       year: "2022",
@@ -58,7 +58,6 @@ const pageContent = {
       primaryColors: [`#519872`, `#ffffff`],
       secondaryColors: [`#08404C`, `#ffffff`],
       designURL: `https://www.figma.com/file/hU48k3hyztx0udp1T980k7/PHYSIOHUB-%2F-STYLE-TILES`,
-      demoURL: `https://fysiohub.no/`,
     },
     {
       year: "2021",
