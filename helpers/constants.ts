@@ -29,38 +29,6 @@ const pageContent = {
   projects: [
     {
       year: "2021",
-      id: `gradient-canvas-1`,
-      initializer: (gradient) => (gradient.conf.wireframe = true),
-      cover: require("public/images/jrdesign_cover.png"),
-      logo: require("public/images/logo_jrdesign_colored.png"),
-      altLogo: require("public/images/logo_jrdesign_alt.png"),
-      title: `JR DESIGN AS`,
-      compTitle: `Web Development Agency`,
-      missionTags: [`UI Design`, `Web development`],
-      techTags: [`NextJs`, `Sass`, `Gsap`, `JamStack`],
-      primaryColors: [`#cc2e2e`, `#ffffff`],
-      secondaryColors: [`#2d2d2d`, `#ffffff`],
-      demoURL: `https://jrdesign.vercel.app/`,
-    },
-    {
-      year: "2022",
-      makeDark: true,
-      id: `gradient-canvas-2`,
-      initializer: (gradient) => {
-        gradient.amp = 160;
-      },
-      cover: require("public/images/fysiohub_cover.png"),
-      altLogo: require("public/images/logo_fysiohub_alt.png"),
-      title: `FYSIOHUB`,
-      compTitle: `Fitness & Physiotherapy Clinic`,
-      missionTags: [`UI Design`, `Frontend`, `Wordpress`],
-      techTags: [`Php`, `Sass`, `Wordpress`, `Javascript`, `Gulp`],
-      primaryColors: [`#519872`, `#ffffff`],
-      secondaryColors: [`#08404C`, `#ffffff`],
-      designURL: `https://www.figma.com/file/hU48k3hyztx0udp1T980k7/PHYSIOHUB-%2F-STYLE-TILES`,
-    },
-    {
-      year: "2021",
       id: `gradient-canvas-3`,
       initializer: (gradient) => {
         gradient.updateFrequency(0.0000125);
@@ -85,6 +53,38 @@ const pageContent = {
       designURL: `https://www.figma.com/file/OjvlCrSr7PCuBXvxKcIAL6/Echo-v2`,
       repoURL: `https://github.com/rush2di/echov2`,
       demoURL: `https://echoboard.netlify.app/`,
+    },
+    {
+      year: "2022",
+      makeDark: true,
+      id: `gradient-canvas-2`,
+      initializer: (gradient) => {
+        gradient.amp = 160;
+      },
+      cover: require("public/images/fysiohub_cover.png"),
+      altLogo: require("public/images/logo_fysiohub_alt.png"),
+      title: `FYSIOHUB`,
+      compTitle: `Fitness & Physiotherapy Clinic`,
+      missionTags: [`UI Design`, `Frontend`, `Wordpress`],
+      techTags: [`Php`, `Sass`, `Wordpress`, `Javascript`, `Gulp`],
+      primaryColors: [`#519872`, `#ffffff`],
+      secondaryColors: [`#08404C`, `#ffffff`],
+      designURL: `https://www.figma.com/file/hU48k3hyztx0udp1T980k7/PHYSIOHUB-%2F-STYLE-TILES`,
+    },
+    {
+      year: "2021",
+      id: `gradient-canvas-1`,
+      initializer: (gradient) => (gradient.conf.wireframe = true),
+      cover: require("public/images/jrdesign_cover.png"),
+      logo: require("public/images/logo_jrdesign_colored.png"),
+      altLogo: require("public/images/logo_jrdesign_alt.png"),
+      title: `JR DESIGN AS`,
+      compTitle: `Web Development Agency`,
+      missionTags: [`UI Design`, `Web development`],
+      techTags: [`NextJs`, `Sass`, `Gsap`, `JamStack`],
+      primaryColors: [`#cc2e2e`, `#ffffff`],
+      secondaryColors: [`#2d2d2d`, `#ffffff`],
+      demoURL: `https://jrdesign.vercel.app/`,
     },
     {
       year: "2020",
