@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { v4 as uuid } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 
@@ -72,8 +71,8 @@ const Home: NextPage = () => {
         >
           {projects.map(({ id, initializer, ...data }) => (
             <div
-              key={uuid()}
-              className="project snap-center h-full w-full snap-always will-change-contents"
+              key={id}
+              className="project h-full w-full will-change-contents"
             >
               <ProjectWrapper id={id} initializer={initializer}>
                 <ProjectContent {...data} />
